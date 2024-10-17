@@ -10,6 +10,7 @@ function getComputerChoice() {
 }
 
 let getUserChoice = prompt("Choose rock, paper, or scissors");
+getUserChoice = getUserChoice.toLowerCase();
 let computerChoice = getComputerChoice();
 if (
   getUserChoice === "rock" ||
@@ -26,6 +27,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 // define what beats what
+// if user won print uesr won +1 humanScore
 function playRound(getUserChoice, computerChoice) {
   if (getUserChoice === computerChoice) {
     return "It's a tie!";
@@ -34,9 +36,11 @@ function playRound(getUserChoice, computerChoice) {
     (getUserChoice === "scissors" && computerChoice === "paper") ||
     (getUserChoice === "paper" && computerChoice === "rock")
   ) {
-    return "You win!";
+    humanScore++;
+    return "You win! Your Score:" + humanScore;
   } else {
-    return "You Lose";
+    computerScore++;
+    return "You Lose. Computer Score:" + computerScore;
   }
 }
 console.log(playRound(getUserChoice, computerChoice));
