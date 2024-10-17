@@ -9,25 +9,11 @@ function getComputerChoice() {
   }
 }
 
-let getUserChoice = prompt("Choose rock, paper, or scissors");
-getUserChoice = getUserChoice.toLowerCase();
-let computerChoice = getComputerChoice();
-if (
-  getUserChoice === "rock" ||
-  getUserChoice === "paper" ||
-  getUserChoice === "scissors"
-) {
-  // generate a new computer choice
-  console.log(
-    "You chose: " + getUserChoice + ". " + "Computer chose: " + computerChoice
-  );
-}
-
 let humanScore = 0;
 let computerScore = 0;
 
 // define what beats what
-// if user won print uesr won +1 humanScore
+// if user won print user won +1 humanScore
 function playRound(getUserChoice, computerChoice) {
   if (getUserChoice === computerChoice) {
     return "It's a tie!";
@@ -43,6 +29,31 @@ function playRound(getUserChoice, computerChoice) {
     return "You Lose. Computer Score:" + computerScore;
   }
 }
-console.log(playRound(getUserChoice, computerChoice));
 
-// if user won print uesr won +1 humanScore
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    let getUserChoice = prompt("Choose rock, paper, or scissors");
+    getUserChoice = getUserChoice.toLowerCase();
+    if (
+      getUserChoice === "rock" ||
+      getUserChoice === "paper" ||
+      getUserChoice === "scissors"
+    ) {
+      let computerChoice = getComputerChoice();
+      console.log(
+        "You chose: " +
+          getUserChoice +
+          ". " +
+          "Computer chose: " +
+          computerChoice
+      );
+      console.log(playRound(getUserChoice, computerChoice));
+    } else {
+      console.log("Invalid choice. Please choose rock, paper, or scissors.");
+      i--;
+    }
+  }
+  console.log(`Final Score: You - ${humanScore}, Computer - ${computerScore}`);
+}
+
+playGame();
