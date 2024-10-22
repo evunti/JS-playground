@@ -57,3 +57,31 @@ function playGame() {
 }
 
 playGame();
+
+// learning DOM
+// const p = document.createElement("p");
+// p.textContent = "Hey I’m red!";
+// document.body.appendChild(p);
+// p.style.color = "red";
+
+// const h3 = document.createElement("h3");
+// h3.textContent = "I’m a blue h3!";
+// document.body.appendChild(h3);
+// h3.style.color = "blue";
+
+// const divContainer = document.createElement("div");
+
+// document.body.appendChild(divContainer);
+// divContainer.style.border = "1px solid black";
+// divContainer.style.background = "pink";
+
+// const h1InDiv = document.createElement("h1");
+// h1InDiv.textContent = "I'm in a div";
+
+// const pInDiv = document.createElement("p");
+// pInDiv.textContent = "ME TOO!";
+
+// divContainer.appendChild(h1InDiv);
+// divContainer.appendChild(pInDiv);
+
+// document.body.appendChild(divContainer);
