@@ -12,8 +12,6 @@ function getComputerChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-// define what beats what
-// if user won print user won +1 humanScore
 function playRound(getUserChoice, computerChoice) {
   if (getUserChoice === computerChoice) {
     return "It's a tie!";
