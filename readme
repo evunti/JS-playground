@@ -42,7 +42,6 @@ Code from JS exercise on learning DOM:
     Adding UI to game
     1. For now, remove the logic that plays exactly five rounds.
     2. Create three buttons, one for each selection.
-
     Add an event listener to the buttons that call
     your playRound function with the correct
     playerSelection every time a button is clicked.

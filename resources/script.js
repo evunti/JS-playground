@@ -36,6 +36,12 @@ function updateResults(resultText) {
 
   const scoreDiv = document.getElementById("score");
   scoreDiv.textContent = `Final Score: You  ${humanScore}, Computer  ${computerScore}`;
+  if (humanScore === 5) {
+    resultDiv.textContent = "You won!";
+  }
+  if (computerScore === 5) {
+    resultDiv.textContent = "Computer won.";
+  }
 }
 
 document.getElementById("rock").addEventListener("click", function () {
@@ -43,7 +49,7 @@ document.getElementById("rock").addEventListener("click", function () {
   const computerChoice = getComputerChoice();
   const result = playRound(getUserChoice, computerChoice);
   updateResults(
-    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. ${result}`
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. `
   );
 });
 
@@ -52,7 +58,7 @@ document.getElementById("paper").addEventListener("click", function () {
   const computerChoice = getComputerChoice();
   const result = playRound(getUserChoice, computerChoice);
   updateResults(
-    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. ${result}`
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. `
   );
 });
 document.getElementById("scissors").addEventListener("click", function () {
@@ -60,12 +66,11 @@ document.getElementById("scissors").addEventListener("click", function () {
   const computerChoice = getComputerChoice();
   const result = playRound(getUserChoice, computerChoice);
   updateResults(
-    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. ${result}`
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. `
   );
 });
 
-// work in progress
-
+// previous code layout
 // function playGame() {
 //   // for (let i = 0; i < 5; i++)
 //   // {
