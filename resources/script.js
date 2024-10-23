@@ -38,9 +38,15 @@ function updateResults(resultText) {
   scoreDiv.textContent = `Final Score: You  ${humanScore}, Computer  ${computerScore}`;
   if (humanScore === 5) {
     resultDiv.textContent = "You won!";
+    setTimeout(() => {
+      window.location.reload(); // Reset page after a delay
+    }, 1500);
   }
   if (computerScore === 5) {
     resultDiv.textContent = "Computer won.";
+    setTimeout(() => {
+      window.location.reload(); // Reset page after a delay
+    }, 3000);
   }
 }
 
