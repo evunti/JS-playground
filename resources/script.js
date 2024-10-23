@@ -28,58 +28,74 @@ function playRound(getUserChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  for (let i = 0; i < 5; i++) {
-    let getUserChoice = prompt("Choose rock, paper, or scissors");
-    getUserChoice = getUserChoice.toLowerCase();
-    if (
-      getUserChoice === "rock" ||
-      getUserChoice === "paper" ||
-      getUserChoice === "scissors"
-    ) {
-      let computerChoice = getComputerChoice();
-      console.log(
-        "You chose: " +
-          getUserChoice +
-          ". " +
-          "Computer chose: " +
-          computerChoice
-      );
-      console.log(playRound(getUserChoice, computerChoice));
-    } else {
-      console.log("Invalid choice. Please choose rock, paper, or scissors.");
-      i--;
-    }
+function updateResults(resultText) {
+  const resultDiv = document.getElementById("results");
+  resultDiv.textContent = resultText;
+
+  const scoreDiv = document.getElementById("score");
+  scoreDiv.textContent = `Final Score: You  ${humanScore}, Computer  ${computerScore}`;
+  if (humanScore === 5) {
+    resultDiv.textContent = "You won!";
+    setTimeout(() => {
+      window.location.reload(); // Reset page after a delay
+    }, 1500);
   }
-  console.log(`Final Score: You - ${humanScore}, Computer - ${computerScore}`);
+  if (computerScore === 5) {
+    resultDiv.textContent = "Computer won.";
+    setTimeout(() => {
+      window.location.reload(); // Reset page after a delay
+    }, 3000);
+  }
 }
 
-playGame();
+document.getElementById("rock").addEventListener("click", function () {
+  const getUserChoice = "rock";
+  const computerChoice = getComputerChoice();
+  const result = playRound(getUserChoice, computerChoice);
+  updateResults(
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. `
+  );
+});
 
-// learning DOM
-// const p = document.createElement("p");
-// p.textContent = "Hey I’m red!";
-// document.body.appendChild(p);
-// p.style.color = "red";
+document.getElementById("paper").addEventListener("click", function () {
+  const getUserChoice = "paper";
+  const computerChoice = getComputerChoice();
+  const result = playRound(getUserChoice, computerChoice);
+  updateResults(
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. `
+  );
+});
+document.getElementById("scissors").addEventListener("click", function () {
+  const getUserChoice = "scissors";
+  const computerChoice = getComputerChoice();
+  const result = playRound(getUserChoice, computerChoice);
+  updateResults(
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. `
+  );
+});
 
-// const h3 = document.createElement("h3");
-// h3.textContent = "I’m a blue h3!";
-// document.body.appendChild(h3);
-// h3.style.color = "blue";
+// previous code layout
+// function playGame() {
+//   // for (let i = 0; i < 5; i++)
+//   // {
+//   // let getUserChoice = prompt("Choose rock, paper, or scissors");
+//   // getUserChoice = getUserChoice.toLowerCase();
+//   if (
+//     getUserChoice === "rock" ||
+//     getUserChoice === "paper" ||
+//     getUserChoice === "scissors"
+//   ) {
+//     let computerChoice = getComputerChoice();
+//     console.log(
+//       "You chose: " + getUserChoice + ". " + "Computer chose: " + computerChoice
+//     );
+//     console.log(playRound(getUserChoice, computerChoice));
+//   } else {
+//     console.log("Invalid choice. Please choose rock, paper, or scissors.");
+//     i--;
+//     // }
+//   }
+//   console.log(`Final Score: You  ${humanScore}, Computer  ${computerScore}`);
+// }
 
-// const divContainer = document.createElement("div");
-
-// document.body.appendChild(divContainer);
-// divContainer.style.border = "1px solid black";
-// divContainer.style.background = "pink";
-
-// const h1InDiv = document.createElement("h1");
-// h1InDiv.textContent = "I'm in a div";
-
-// const pInDiv = document.createElement("p");
-// pInDiv.textContent = "ME TOO!";
-
-// divContainer.appendChild(h1InDiv);
-// divContainer.appendChild(pInDiv);
-
-// document.body.appendChild(divContainer);
+// playGame();
