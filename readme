@@ -9,10 +9,43 @@ another <h1> that says “I’m in a div”
 a <p> that says “ME TOO!”
 Hint for this one: after creating the <div> with createElement, append the <h1> and <p> to it before adding it to the container.
 
+Code from JS exercise on learning DOM:
+
+// learning DOM
+// const p = document.createElement("p");
+// p.textContent = "Hey I’m red!";
+// document.body.appendChild(p);
+// p.style.color = "red";
+
+// const h3 = document.createElement("h3");
+// h3.textContent = "I’m a blue h3!";
+// document.body.appendChild(h3);
+// h3.style.color = "blue";
+
+// const divContainer = document.createElement("div");
+
+// document.body.appendChild(divContainer);
+// divContainer.style.border = "1px solid black";
+// divContainer.style.background = "pink";
+
+// const h1InDiv = document.createElement("h1");
+// h1InDiv.textContent = "I'm in a div";
+
+// const pInDiv = document.createElement("p");
+// pInDiv.textContent = "ME TOO!";
+
+// divContainer.appendChild(h1InDiv);
+// divContainer.appendChild(pInDiv);
+
+// document.body.appendChild(divContainer);
+
     Adding UI to game
     1. For now, remove the logic that plays exactly five rounds.
     2. Create three buttons, one for each selection.
-    Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
+
+    Add an event listener to the buttons that call
+    your playRound function with the correct
+    playerSelection every time a button is clicked.
     (you can keep the console.logs for this step)
     3. Add a div for displaying results and change all of your console.logs into DOM methods.
     4. Display the running score, and announce a winner of the game once one player reaches 5 points.

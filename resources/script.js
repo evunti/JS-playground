@@ -30,55 +30,43 @@ function playRound(getUserChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  // for (let i = 0; i < 5; i++)
-  // {
-  // let getUserChoice = prompt("Choose rock, paper, or scissors");
-  // getUserChoice = getUserChoice.toLowerCase();
-  if (
-    getUserChoice === "rock" ||
-    getUserChoice === "paper" ||
-    getUserChoice === "scissors"
-  ) {
-    let computerChoice = getComputerChoice();
-    console.log(
-      "You chose: " + getUserChoice + ". " + "Computer chose: " + computerChoice
-    );
-    console.log(playRound(getUserChoice, computerChoice));
-  } else {
-    console.log("Invalid choice. Please choose rock, paper, or scissors.");
-    i--;
-    // }
-  }
-  console.log(`Final Score: You - ${humanScore}, Computer - ${computerScore}`);
+function updateResults(resultText) {
+  const resultDiv = document.getElementById("results");
+  resultDiv.textContent = resultText;
+
+  const scoreDiv = document.getElementById("score");
+  scoreDiv.textContent = `Final Score: You  ${humanScore}, Computer  ${computerScore}`;
 }
+// work in progress
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
 
-playGame();
+rockButton.addEventListener("click", function playRound() {
+  console.log();
+});
 
-// learning DOM
-// const p = document.createElement("p");
-// p.textContent = "Hey I’m red!";
-// document.body.appendChild(p);
-// p.style.color = "red";
+// function playGame() {
+//   // for (let i = 0; i < 5; i++)
+//   // {
+//   // let getUserChoice = prompt("Choose rock, paper, or scissors");
+//   // getUserChoice = getUserChoice.toLowerCase();
+//   if (
+//     getUserChoice === "rock" ||
+//     getUserChoice === "paper" ||
+//     getUserChoice === "scissors"
+//   ) {
+//     let computerChoice = getComputerChoice();
+//     console.log(
+//       "You chose: " + getUserChoice + ". " + "Computer chose: " + computerChoice
+//     );
+//     console.log(playRound(getUserChoice, computerChoice));
+//   } else {
+//     console.log("Invalid choice. Please choose rock, paper, or scissors.");
+//     i--;
+//     // }
+//   }
+//   console.log(`Final Score: You  ${humanScore}, Computer  ${computerScore}`);
+// }
 
-// const h3 = document.createElement("h3");
-// h3.textContent = "I’m a blue h3!";
-// document.body.appendChild(h3);
-// h3.style.color = "blue";
-
-// const divContainer = document.createElement("div");
-
-// document.body.appendChild(divContainer);
-// divContainer.style.border = "1px solid black";
-// divContainer.style.background = "pink";
-
-// const h1InDiv = document.createElement("h1");
-// h1InDiv.textContent = "I'm in a div";
-
-// const pInDiv = document.createElement("p");
-// pInDiv.textContent = "ME TOO!";
-
-// divContainer.appendChild(h1InDiv);
-// divContainer.appendChild(pInDiv);
-
-// document.body.appendChild(divContainer);
+// playGame();
