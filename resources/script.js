@@ -37,14 +37,34 @@ function updateResults(resultText) {
   const scoreDiv = document.getElementById("score");
   scoreDiv.textContent = `Final Score: You  ${humanScore}, Computer  ${computerScore}`;
 }
-// work in progress
-const rockButton = document.getElementById("rock");
-const paperButton = document.getElementById("paper");
-const scissorsButton = document.getElementById("scissors");
 
-rockButton.addEventListener("click", function playRound() {
-  console.log();
+document.getElementById("rock").addEventListener("click", function () {
+  const getUserChoice = "rock";
+  const computerChoice = getComputerChoice();
+  const result = playRound(getUserChoice, computerChoice);
+  updateResults(
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. ${result}`
+  );
 });
+
+document.getElementById("paper").addEventListener("click", function () {
+  const getUserChoice = "paper";
+  const computerChoice = getComputerChoice();
+  const result = playRound(getUserChoice, computerChoice);
+  updateResults(
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. ${result}`
+  );
+});
+document.getElementById("scissors").addEventListener("click", function () {
+  const getUserChoice = "scissors";
+  const computerChoice = getComputerChoice();
+  const result = playRound(getUserChoice, computerChoice);
+  updateResults(
+    `You chose: ${getUserChoice}. Computer chose: ${computerChoice}. ${result}`
+  );
+});
+
+// work in progress
 
 // function playGame() {
 //   // for (let i = 0; i < 5; i++)
