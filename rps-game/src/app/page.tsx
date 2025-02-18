@@ -2,6 +2,22 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 
+const choiceStyles = {
+  display: "flex",
+  alignItems: "center",
+  marginBottom: 40,
+};
+
+const nameStyles = {
+  margin: 0,
+  fontSize: 24,
+  color: "#ffff",
+};
+const resultStyles = {
+  marginTop: 40,
+  fontSize: 48,
+  color: "#ffff",
+};
 const CHOICES = [{ name: "rock" }, { name: "paper" }, { name: "scissors" }];
 
 function Game() {
@@ -13,7 +29,7 @@ function Game() {
   );
   const [result, setResult] = useState<string | null>(null);
 
-  function handlePlayerChoice({ choice }: { choice: { name: string } }): void {
+  function handlePlayerChoice(choice: { name: string }): void {
     const computerChoice = CHOICES[Math.floor(Math.random() * CHOICES.length)];
     setPlayerChoice(choice);
     setComputerChoice(computerChoice);
@@ -37,32 +53,34 @@ function Game() {
   }
 
   return (
-    <div className={styles.page}>
-      <section>
-        <div>
+    <div className={styles.container}>
+      <h1 style={{ fontSize: 48, marginTop: 0 }}>Rock Paper Scissors</h1>
+      <div>
+        {CHOICES.map((choice) => (
           <button
-            id="rock"
-            onClick={() => handlePlayerChoice({ choice: { name: "rock" } })}
+            className={styles.button}
+            key={choice.name}
+            onClick={() => handlePlayerChoice(choice)}
+            aria-label={choice.name}
           >
-            Rock
+            {choice.name}
           </button>
-          <button
-            id="paper"
-            onClick={() => handlePlayerChoice({ choice: { name: "paper" } })}
-          >
-            Paper
-          </button>
-          <button
-            id="scissors"
-            onClick={() => handlePlayerChoice({ choice: { name: "scissors" } })}
-          >
-            Scissors
+        ))}
+      </div>
+      {playerChoice && computerChoice && (
+        <div className={styles.results}>
+          <div style={choiceStyles}>
+            <p style={nameStyles}>You chose {playerChoice.name}</p>
+          </div>
+          <div style={choiceStyles}>
+            <p style={nameStyles}>The computer chose {computerChoice.name}</p>
+          </div>
+          <h2 style={resultStyles}>{result}</h2>
+          <button className={styles.button} onClick={resetGame}>
+            Play again
           </button>
         </div>
-        <div id="results">{result}</div>
-        <div id="score"></div>
-        <button onClick={resetGame}>Reset</button>
-      </section>
+      )}
     </div>
   );
 }
