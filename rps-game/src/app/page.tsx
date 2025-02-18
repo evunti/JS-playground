@@ -67,6 +67,4 @@ function Game() {
   );
 }
 
-export default function Home() {
-  return <Game />;
-}
+export default Game;
