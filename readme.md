@@ -1,7 +1,7 @@
 built a rock paper scissors game with vanilla js
 rebuilt with next.js
 
-// previous code layout
+previous code layout
 // function playGame() {
 // // for (let i = 0; i < 5; i++)
 // // {
